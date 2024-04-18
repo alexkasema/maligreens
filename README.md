@@ -1,0 +1,2 @@
+# MaliGreens
+An Application that Empowers farmers and vendors to showcase their harvest, fostering a vibrant marketplace for fresh produce.Empowering farmers and vendors to showcase their harvest, fostering a vibrant marketplace for fresh produce.
