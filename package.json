@@ -1,0 +1,15 @@
+{
+  "name": "maligreens",
+  "version": "1.0.0",
+  "description": "Ecommerce Application for Fruits and Vegetables Venders/Farmers",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "author": "Alex Kasema",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
