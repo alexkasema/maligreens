@@ -1,16 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Card, Button, Form} from 'react-bootstrap';
 import Rating from '../../components/Rating';
-import products from '../../products';
+
+import axios from 'axios';
 
 
 const ProductScreen = () => {
     const { id: productId } = useParams();
-    const product = products.find(product => product._id === productId);
-
+    
+    const [product, setProduct] = useState({});
     const [qty, setQty] = useState(1);
+
+    useEffect(() => {
+        const fetchProduct = async() => {
+            const { data } = await axios.get(`/api/products/${productId}`);
+            setProduct(data);
+        }
+        fetchProduct();
+    }, [productId])
 
     const addToCartHandler = () => {
         console.log('Add to cart: ', product);
@@ -48,7 +57,7 @@ const ProductScreen = () => {
                             <ListGroup.Item>
                                 <Row>
                                     <Col>Price:</Col>
-                                    <Col><strong>${product.price}</strong></Col>
+                                    <Col><strong>ksh {product.price}</strong></Col>
                                 </Row>
                             </ListGroup.Item>
                             <ListGroup.Item>
