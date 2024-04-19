@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
+import connectDB from './config/db.js';
 
 import products from './data/products.js';
 
@@ -21,4 +22,15 @@ app.get('/api/products/:id', (req, res) => {
     res.json(product);
 })
 
-app.listen(port, () => console.log(`Server is listening on port ${port}`));
+const start = async () => {
+    try {
+        await connectDB();
+        app.listen(port, () => console.log(`Server is listening on port ${port}`));
+    } catch (error) {
+        console.error(`Error: ${error.message}`);
+        process.exit(1);
+    }
+
+}
+
+start();
