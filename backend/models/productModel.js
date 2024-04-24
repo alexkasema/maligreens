@@ -32,10 +32,10 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    imageUrls: {
+    imageUrls: [{
         type: String,
         required: true,
-    },
+    }],
     phoneNumber: {
         type: String,
         required: true,
