@@ -30,6 +30,7 @@ const cartSlice = createSlice({
 
             return updateCart(state);
         },
+        resetCart: (state) => (state = initialState)
     }
 });
 
@@ -37,6 +38,7 @@ const cartSlice = createSlice({
 export const {
     addToCart,
     removeFromCart,
+    resetCart,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

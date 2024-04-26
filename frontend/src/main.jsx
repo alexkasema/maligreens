@@ -15,6 +15,8 @@ import App from './App.jsx';
 import HomeScreen from './screens/home/HomeScreen.jsx';
 import ProductScreen from './screens/product/ProductScreen.jsx';
 import CartScreen from './screens/cart/CartScreen.jsx';
+import LoginScreen from './screens/auth/LoginScreen.jsx';
+import RegisterScreen from './screens/auth/RegisterScreen.jsx';
 
 
 const router = createBrowserRouter(
@@ -23,6 +25,8 @@ const router = createBrowserRouter(
       <Route index={true} path='/' element={<HomeScreen />}></Route>
       <Route path='/product/:id' element={<ProductScreen />}></Route>
       <Route path='/cart' element={<CartScreen />}></Route>
+      <Route path='/login' element={<LoginScreen />}></Route>
+      <Route path='/register' element={<RegisterScreen />}></Route>
     </Route>
   )
 )
