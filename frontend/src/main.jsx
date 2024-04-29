@@ -14,6 +14,7 @@ import './assets/styles/bootstrap.custom.css';
 import './assets/styles/index.css';
 import App from './App.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
+import AdminRoute from './components/AdminRoute.jsx';
 import HomeScreen from './screens/home/HomeScreen.jsx';
 import ProductScreen from './screens/product/ProductScreen.jsx';
 import CartScreen from './screens/cart/CartScreen.jsx';
@@ -24,6 +25,7 @@ import PaymentScreen from './screens/checkout/PaymentScreen.jsx';
 import PlaceOrderScreen from './screens/checkout/PlaceOrderScreen.jsx';
 import OrderScreen from './screens/checkout/OrderScreen.jsx';
 import ProfileScreen from './screens/user/ProfileScreen.jsx';
+import OrderListScreen from './screens/admin/OrderListScreen.jsx';
 
 
 const router = createBrowserRouter(
@@ -43,10 +45,13 @@ const router = createBrowserRouter(
         <Route path='/order/:id' element={<OrderScreen />}></Route>
         <Route path='/profile' element={<ProfileScreen />}></Route>
       </Route>
+
+      <Route path='' element={<AdminRoute/>}>
+        <Route path='/admin/orderlist' element={<OrderListScreen />}></Route>
+      </Route>
     </Route>
   )
 )
-
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
