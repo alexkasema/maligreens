@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import {PayPalScriptProvider} from '@paypal/react-paypal-js';
 import { Provider } from 'react-redux';
+import { QueryClient, QueryClientProvider } from "react-query";
 import store from './store.js'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/styles/bootstrap.custom.css';
@@ -27,7 +28,16 @@ import OrderScreen from './screens/checkout/OrderScreen.jsx';
 import ProfileScreen from './screens/user/ProfileScreen.jsx';
 import OrderListScreen from './screens/admin/OrderListScreen.jsx';
 import ProductListScreen from './screens/admin/ProductListScreen.jsx';
+import ProductCreateScreen from './screens/admin/ProductCreateScreen.jsx';
+import ProductEditScreen from './screens/admin/ProductEditScreen.jsx';
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 0,
+    },
+  },
+});
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -50,6 +60,8 @@ const router = createBrowserRouter(
       <Route path='' element={<AdminRoute/>}>
         <Route path='/admin/orderlist' element={<OrderListScreen />}></Route>
         <Route path='/admin/productlist' element={<ProductListScreen />}></Route>
+        <Route path='/admin/product/create' element={<ProductCreateScreen />}></Route>
+        <Route path='/admin/product/:id/edit' element={<ProductEditScreen />}></Route>
       </Route>
     </Route>
   )
@@ -58,9 +70,11 @@ const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <PayPalScriptProvider deferLoading={true}>
-        <RouterProvider router={router} />
-      </PayPalScriptProvider>
+      <QueryClientProvider client={queryClient}>
+        <PayPalScriptProvider deferLoading={true}>
+          <RouterProvider router={router} />
+        </PayPalScriptProvider>
+      </QueryClientProvider>
     </Provider>
     
   </React.StrictMode>

@@ -1,4 +1,5 @@
 import { LinkContainer } from 'react-router-bootstrap';
+import { Link } from 'react-router-dom';
 import { Col, Row, Table, Button } from 'react-bootstrap';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import { 
@@ -29,9 +30,9 @@ const ProductListScreen = () => {
                     <h1>Products</h1>
                 </Col>
                 <Col className='text-end'>
-                    <Button className='btn-sm m-3'>
-                        <FaEdit /> Create Product
-                    </Button>
+                    <Link to="/admin/product/create" className="btn btn-light my-3">
+                        Create Product
+                    </Link>
                 </Col>
             </Row>
 
@@ -53,7 +54,7 @@ const ProductListScreen = () => {
                                 <tr key={product._id}>
                                     <td> {product._id} </td>
                                     <td> {product.name} </td>
-                                    <td> ${product.price} </td>
+                                    <td> ksh {product.price} </td>
                                     <td> {product.category} </td>
                                     <td> {product.phoneNumber} </td>
                                     <td>

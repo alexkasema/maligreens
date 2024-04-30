@@ -138,7 +138,7 @@ const OrderScreen = () => {
                                         <Row>
                                         <Col md={2}>
                                             <Image
-                                                src={item.imageUrls}
+                                                src={item.imageUrls[0]}
                                                 alt={item.name}
                                                 fluid
                                                 rounded />
@@ -149,7 +149,7 @@ const OrderScreen = () => {
                                             </Link>
                                         </Col>
                                         <Col md={4}>
-                                            {item.qty} x ${item.price} = ${item.qty * item.price}
+                                            {item.qty} x ksh {item.price} = ksh {item.qty * item.price}
                                         </Col>
                                         </Row>
                                     </ListGroup.Item>

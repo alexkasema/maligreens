@@ -1,5 +1,8 @@
 import Product from '../models/productModel.js';
 import asyncHandler from '../middleware/asyncHandler.js';
+import multer from "multer";
+import cloudinary from 'cloudinary';
+import { body } from "express-validator";
 
 
 // @desc Fetch all products
@@ -24,8 +27,68 @@ const getProductById = asyncHandler(async (req, res) => {
     }
 });
 
+const storage = multer.memoryStorage();
+const upload = multer({
+    storage: storage,
+    limits: {
+      fileSize: 5 * 1024 * 1024, // 5MB
+    },
+  });
+
+// @desc Create a  product
+// @route POST /api/products
+// @access Private / Admin
+const createProduct = asyncHandler([
+    body("name").notEmpty().withMessage("Name is required"),
+    body("price").notEmpty().isNumeric().withMessage("Price is required and must be a number"),
+    body("category").notEmpty().withMessage("Category is required"),
+    body("countInStock").notEmpty().isNumeric().withMessage("Count in stock is required and must be a number"),
+    body("description").notEmpty().withMessage("Description is required"),
+    body("phoneNumber").notEmpty().withMessage("Phone number is required"),
+],upload.array("imageFiles", 6),
+    async (req, res) => {
+    try {
+        const imageFiles = req.files;
+        const newProduct = req.body;
+
+        const imageUrls = await uploadImages(imageFiles);
+
+        //!2. if upload is successful add the urls to the new product object
+        newProduct.imageUrls = imageUrls;
+        newProduct.user = req.user._id;
+
+        //!3. save the new product object to the database
+        const product = new Product(newProduct);
+        await product.save();
+        
+         //!4. return a 201 status code and the new product object
+        res.status(201).json(product);
+
+    } catch (error) {
+        console.log("Error creating new product: " + error);
+        res.status(500)
+        throw new Error('Something went wrong')
+    }
+});
+
+async function uploadImages(imageFiles) {
+    //!1. upload the images to cloudinary
+   //! uploading one image at a time
+   const uploadPromises = imageFiles.map(async (image) => {
+     //! encode image as base 64 string
+     const b64 = Buffer.from(image.buffer).toString("base64");
+     let dataURI = "data:" + image.mimetype + ";base64," + b64;
+     const res = await cloudinary.v2.uploader.upload(dataURI);
+     return res.url;
+   });
+ 
+   const imageUrls = await Promise.all(uploadPromises);
+   return imageUrls;
+ }
+
 
 export { 
     getProducts,
     getProductById,
+    createProduct,
 };
