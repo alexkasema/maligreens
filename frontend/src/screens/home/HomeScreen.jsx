@@ -7,6 +7,7 @@ import Loader from '../../components/Loader';
 import Message from '../../components/Message';
 import Paginate from '../../components/Paginate';
 import ProductCarousel from '../../components/ProductCarousel';
+import Meta from '../../components/Meta';
 
 
 const HomeScreen = () => {
@@ -25,7 +26,7 @@ const HomeScreen = () => {
         ) : (
           <>
           <h1>Welcome to MaliGreens</h1>
-          
+          <Meta />
           { !keyword ? (
             <Row>
               {/* <Col lg={4}></Col>

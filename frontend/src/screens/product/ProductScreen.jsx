@@ -12,6 +12,7 @@ import { toast } from 'react-toastify';
 import Rating from '../../components/Rating';
 import Loader from '../../components/Loader';
 import Message from '../../components/Message';
+import Meta from '../../components/Meta.jsx';
 
 
 const ProductScreen = () => {
@@ -61,6 +62,7 @@ const ProductScreen = () => {
                 </Message>
             ) : (
                 <>
+                <Meta title={product.name} />
                 <Row>
                 <Col md={5}>
                     <Image src={product.imageUrls[0]} alt={product.name} fluid/>

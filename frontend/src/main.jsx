@@ -7,6 +7,7 @@ import {
   RouterProvider
 } from 'react-router-dom';
 import {PayPalScriptProvider} from '@paypal/react-paypal-js';
+import {HelmetProvider} from 'react-helmet-async';
 import { Provider } from 'react-redux';
 import { QueryClient, QueryClientProvider } from "react-query";
 import store from './store.js'
@@ -77,13 +78,15 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
-        <PayPalScriptProvider deferLoading={true}>
-          <RouterProvider router={router} />
-        </PayPalScriptProvider>
-      </QueryClientProvider>
-    </Provider>
+    <HelmetProvider>
+      <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
+          <PayPalScriptProvider deferLoading={true}>
+            <RouterProvider router={router} />
+          </PayPalScriptProvider>
+        </QueryClientProvider>
+      </Provider>
+    </HelmetProvider>``
     
   </React.StrictMode>
 )
