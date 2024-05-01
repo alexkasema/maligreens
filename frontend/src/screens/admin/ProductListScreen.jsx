@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 import { Col, Row, Table, Button } from 'react-bootstrap';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import { 
-    useGetProductsQuery, 
+    useGetProductsQuery,
+    useDeleteProductMutation,
 } from '../../slices/productsApiSlice';
+
+import { toast } from 'react-toastify';
 
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
@@ -13,10 +16,14 @@ const ProductListScreen = () => {
 
     const { data:products, isLoading, error, refetch } = useGetProductsQuery();
 
+    const [deleteProduct, { isLoading: loadingDeleting }] = useDeleteProductMutation();
+
     const deleteHandler = async (id) => {
         if (window.confirm(`Are you sure you want to delete this product?`)) {
             try {
-                console.log('Delete Product, id: ' + id);
+                await deleteProduct(id);
+                toast.success('Product deleted successfully');
+                refetch();
             } catch (error) {
                 toast.error(error?.data?.message || error.error);
             }
@@ -35,6 +42,7 @@ const ProductListScreen = () => {
                     </Link>
                 </Col>
             </Row>
+            {loadingDeleting && <Loader />}
 
             {isLoading ? <Loader /> : error ? <Message variant='danger'>{error?.data?.message}</Message> : (
                 <>
