@@ -13,6 +13,8 @@ import { body } from "express-validator";
 
 import { protect, admin } from '../middleware/authMiddleware.js';
 
+import checkObjectId from '../middleware/checkObjectId.js';
+
 const router = express.Router();
 
 
@@ -65,14 +67,15 @@ router.route('/').get(getProducts)
 
 router.get('/top', getTopProducts)
 
-router.route('/:id').get(getProductById).delete(protect, admin, deleteProduct);
+router.route('/:id').get(checkObjectId, getProductById).delete(protect, admin, checkObjectId,deleteProduct);
 
-router.route('/:id/reviews').post(protect, createProductReview);
+router.route('/:id/reviews').post(protect, checkObjectId,createProductReview);
 
 router.put(
   "/:id",
   protect,
   admin,
+  checkObjectId,
   upload.array("imageFiles"),
   async (req, res) => {
     try {
