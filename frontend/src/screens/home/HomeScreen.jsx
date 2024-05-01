@@ -1,19 +1,21 @@
 
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
 import { useGetProductsQuery } from '../../slices/productsApiSlice';
 import Product from '../../components/product/Product';
 import Loader from '../../components/Loader';
 import Message from '../../components/Message';
 import Paginate from '../../components/Paginate';
+import ProductCarousel from '../../components/ProductCarousel';
 
 
 const HomeScreen = () => {
-  const { pageNumber } = useParams();
-  const { data, isLoading, error } = useGetProductsQuery({pageNumber});
+  const { pageNumber, keyword } = useParams();
+  const { data, isLoading, error } = useGetProductsQuery({ keyword, pageNumber });
 
   return (
     <>
+        
         { isLoading ? (
           <Loader />
         ) : error ? (
@@ -23,6 +25,19 @@ const HomeScreen = () => {
         ) : (
           <>
           <h1>Welcome to MaliGreens</h1>
+          
+          { !keyword ? (
+            <Row>
+              {/* <Col lg={4}></Col>
+              <Col lg={4}></Col> */}
+              <Col>
+                <h3>Top products by Ratings</h3>
+                <ProductCarousel/>
+              </Col>
+            </Row>
+            
+            ) : <Link to='/' className='btn btn-light mb-4'>Go Back</Link>
+          }
           <h2>Latest Products</h2>
           <Row>
               {data.products.map(product => {
@@ -37,6 +52,7 @@ const HomeScreen = () => {
               pages={data.pages}
               page={data.page}
               isAdmin={false}
+              keyword={keyword ? keyword : ''}
           />
           </>
         ) }

@@ -5,10 +5,9 @@ import cloudinary from 'cloudinary';
 import { 
     getProducts, 
     getProductById,
-    createProduct,
     deleteProduct,
     createProductReview,
-
+    getTopProducts,
 } from '../controllers/productController.js';
 import { body } from "express-validator";
 
@@ -63,6 +62,8 @@ router.post('/',
 )
 
 router.route('/').get(getProducts)
+
+router.get('/top', getTopProducts)
 
 router.route('/:id').get(getProductById).delete(protect, admin, deleteProduct);
 
