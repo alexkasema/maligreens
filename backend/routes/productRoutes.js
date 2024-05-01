@@ -7,6 +7,7 @@ import {
     getProductById,
     createProduct,
     deleteProduct,
+    createProductReview,
 
 } from '../controllers/productController.js';
 import { body } from "express-validator";
@@ -64,6 +65,8 @@ router.post('/',
 router.route('/').get(getProducts)
 
 router.route('/:id').get(getProductById).delete(protect, admin, deleteProduct);
+
+router.route('/:id/reviews').post(protect, createProductReview);
 
 router.put(
   "/:id",
