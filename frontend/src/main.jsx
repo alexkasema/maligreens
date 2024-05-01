@@ -30,6 +30,8 @@ import OrderListScreen from './screens/admin/OrderListScreen.jsx';
 import ProductListScreen from './screens/admin/ProductListScreen.jsx';
 import ProductCreateScreen from './screens/admin/ProductCreateScreen.jsx';
 import ProductEditScreen from './screens/admin/ProductEditScreen.jsx';
+import UserListScreen from './screens/admin/UserListScreen.jsx';
+import UserEditScreen from './screens/admin/UserEditScreen.jsx';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -62,6 +64,8 @@ const router = createBrowserRouter(
         <Route path='/admin/productlist' element={<ProductListScreen />}></Route>
         <Route path='/admin/product/create' element={<ProductCreateScreen />}></Route>
         <Route path='/admin/product/:id/edit' element={<ProductEditScreen />}></Route>
+        <Route path='/admin/userlist' element={<UserListScreen />}></Route>
+        <Route path='/admin/user/:id/edit' element={<UserEditScreen />}></Route>
       </Route>
     </Route>
   )
