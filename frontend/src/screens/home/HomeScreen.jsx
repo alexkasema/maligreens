@@ -32,7 +32,7 @@ const HomeScreen = () => {
               {/* <Col lg={4}></Col>
               <Col lg={4}></Col> */}
               <Col>
-                <h3>Top products by Ratings</h3>
+                {data.products.length !== 0 ? <h3>Top products by Ratings</h3> : ''}
                 <ProductCarousel/>
               </Col>
             </Row>
