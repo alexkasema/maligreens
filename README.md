@@ -1,5 +1,5 @@
 
-![Logo](./frontend/public/maliLogo.png)
+![Logo](./frontend/public/maligreens.png)
 
 
 # MaliGreens Project
