@@ -9,11 +9,9 @@ This is a Fruits and Vegetables store app. Users can view featured products, add
 
 
 ## 🔗 Links
-[![portfolio](https://img.shields.io/badge/project_blog_article-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://medium.com/lexmulwa/the-maligreens-portfolio-project-8fbd27e298c1/) &nbsp; &nbsp;
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://alex-portfolio-lun2.onrender.com/)
-
-[![portfolio](https://img.shields.io/badge/deployed_project-4CAF50?style=for-the-badge&logo=ko-fi&logoColor=white)](https://maligreens-welcome.onrender.com/)
-
+[![portfolio](https://img.shields.io/badge/project_blog_article-8BC34A?style=for-the-badge&logo=ko-fi&logoColor=white)](https://medium.com/lexmulwa/the-maligreens-portfolio-project-8fbd27e298c1/) &nbsp; &nbsp;
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://alex-portfolio-lun2.onrender.com/) &nbsp; &nbsp;
+[![portfolio](https://img.shields.io/badge/deployed_project-4CAF50?style=for-the-badge&logo=ko-fi&logoColor=white)](https://maligreens-welcome.onrender.com/) &nbsp; &nbsp;
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/alexkasema/)
 
 
