@@ -9,9 +9,10 @@ This is a Fruits and Vegetables store app. Users can view featured products, add
 
 
 ## 🔗 Links
+[![portfolio](https://img.shields.io/badge/project_blog_article-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://medium.com/lexmulwa/the-maligreens-portfolio-project-8fbd27e298c1/) &nbsp; &nbsp;
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://alex-portfolio-lun2.onrender.com/)
 
-[![portfolio](https://img.shields.io/badge/deployed_project-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://maligreens-welcome.onrender.com/)
+[![portfolio](https://img.shields.io/badge/deployed_project-4CAF50?style=for-the-badge&logo=ko-fi&logoColor=white)](https://maligreens-welcome.onrender.com/)
 
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/alexkasema/)
 
@@ -19,6 +20,13 @@ This is a Fruits and Vegetables store app. Users can view featured products, add
 
 
 ![App Images](./frontend/public/maliGreensImages.png)
+
+## Inspiration Behind MaliGreens
+Growing up I used to visit our upcountry home on almost every holiday and when schools were closed. I remember the days spent on my family’s small farm. Tending to the soil, nurturing each plant with care, and my favorite was harvesting the fruits of our labour.
+
+Those moments shaped my deep appreciation for the beauty of nature and the hard work of farmers. The desire to bridge the gap between rural farmers, vendors, and urban consumers, to recreate that sense of community and connection, became my driving force.
+
+And so, MaliGreens was born, a digital sanctuary where farmers, vendors, and consumers come together to celebrate the beauty of fresh produce. Inspired by the resilience of small-scale farmers and the growing demand for sustainable, locally sourced food, MaliGreens aims to empower both producers and consumers alike.
 
 
 ## Features
