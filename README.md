@@ -5,7 +5,7 @@
 # MaliGreens Project
 eCommerce platform built with the MERN stack & Redux.
 
-This is a Fruits and Vegetables store app. Users can view featured products, add products to cart, and pay for their order. Empowers farmers and vendors to showcase their harvest, fostering a vibrant marketplace for fresh produce.
+This is a Fruits and Vegetables store app. Users can view featured products, add products to their cart, and pay for their orders. Empower farmers and vendors to showcase their harvest, fostering a vibrant marketplace for fresh produce.
 
 
 ## 🔗 Links
